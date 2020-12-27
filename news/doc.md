@@ -1,0 +1,16 @@
+## Models
+----------------
+- Category
+    - Title
+    - Image
+- News
+    - Category
+    - Tıtle
+    - Image
+    - Detail
+- Comments
+    - News 
+    - Name
+    - Email
+    - Comments 
+    - Status
