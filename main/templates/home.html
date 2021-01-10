@@ -6,7 +6,7 @@
         <!--Left-->
         <div class="col-md-7">
             <div class="card mb-3">
-                <img src="media/{{first_news.image}}" class="card-img-top" alt="{{first_news.title}}">
+                <img src="{{first_news.image}}" class="card-img-top" alt="{{first_news.title}}">
                 <div class="card-body">
                     <h5 class="card-title">{{first_news.title}}</h5>
                     <hr/>
@@ -22,7 +22,7 @@
         <div class="card">
             <div class="row no-gutters">
                 <div class="col-md-4">
-                    <img src="{{news.image}}" class="card-img-top" alt="{{news.title}}">
+                <img src="{{news.image}}" class="card-img-top" alt="{{news.title}}">
                  </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -34,18 +34,19 @@
         </div>
         <hr/>
         {% endfor %}
-        
     </div>
 </div>
 <!--Category Wise News-->
 {% for category in three_categories %}
-<h3 class="border-bottom pb-1">{{category.title}}<a href="/category.php" class="float-right btn btn-sm btn-dark">In this category</a></h3>
+<h3 class="border-bottom pb-1">{{category.title}}<a href="/category/{{category.id}}" 
+class="float-right btn btn-sm btn-dark">In this category</a></h3>
 <div class="row my-4">
+    {% for news in category.news_set.all %}
+    {% if forloop.counter < 5 %}
     <!--News Box--> 
-    {% for news in category.news %}
     <div class="col-md-3">
         <div class="card mb-3 shadow">
-            <img src="/media/1.jpg" class="card-img-top" alt="News 1">
+            <img src="{{news.image}}" class="card-img-top" alt="{{news.title}}">
             <div class="card-body">
                 <h5 class="card-title">Card Title</h5>
                 <hr/>
@@ -53,7 +54,8 @@
                 </div>
             </div>
         </div>
-    {% endfor %}
+        {% endif %}
+        {% endfor %}
     </div>
     {% endfor %}
     <!--End single category-->

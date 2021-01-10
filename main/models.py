@@ -4,7 +4,7 @@ from django.db import models
 
 class Category(models.Model):
     title=models.CharField(max_length=200)
-    category_model=models.ImageField(upload_to='imgs/')
+    category_model=models.ImageField(upload_to='media/imgs')
 
     class Meta:
         verbose_name_plural='Categories'
